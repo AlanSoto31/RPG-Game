@@ -17,7 +17,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.image("dragonorrange", "assets/dragonorrange.png");
     
     // our two characters
-    this.load.spritesheet('player', 'assets/RPG_assets.png', { frameWidth: 16, frameHeight: 16 });
+    this.load.spritesheet('player', 'assets/manatee-african.png', { frameWidth: 32, frameHeight: 32 });
   }
 
   create () {
