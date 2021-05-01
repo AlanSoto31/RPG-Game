@@ -280,21 +280,13 @@ export class ActionsMenu extends Menu {
     
 };
 
-export class EnemiesMenu extends Menu {
-    constructor (x, y, scene) {
-        super(x, y, scene);        
-    }       
-    confirm() {      
-        // the player has selected the enemy and we send its id with the event
-        this.scene.events.emit("Enemy", this.menuItemIndex);
-    }
-};
+
 
 // User Interface scene
 
 // the message class extends containter 
 
 
-export default { BattleScene, MenuItem, Menu, HeroesMenu, ActionsMenu, EnemiesMenu };
+export default { BattleScene, MenuItem, Menu, HeroesMenu, ActionsMenu};
 
 
