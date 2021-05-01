@@ -262,13 +262,7 @@ export class Menu extends Phaser.GameObjects.Container {
     }
 };
 
-export class HeroesMenu extends Menu {
-    constructor (x, y, scene) {
-        super(x, y, scene);                    
-    }
-};
 
-
-export default { BattleScene, MenuItem, Menu, HeroesMenu};
+export default { BattleScene, MenuItem, Menu};
 
 
