@@ -1,4 +1,6 @@
-export default class WorldScene extends Phaser.Scene {
+import 'phaser';
+
+export class BattleScene extends Phaser.Scene {
     constructor () {
       super('BattleScene');
     }
@@ -109,6 +111,216 @@ export default class WorldScene extends Phaser.Scene {
     }
 };
 
+// base class for heroes and enemies
+class Unit extends Phaser.GameObjects.Sprite {
 
+    constructor(scene, x, y, texture, frame, type, hp, damage) {
+        super(scene, x, y, texture, frame)
+        this.type = type;
+        this.maxHp = this.hp = hp;
+        this.damage = damage; // default damage     
+        this.living = true;         
+        this.menuItem = null;
+    }
+    // we will use this to notify the menu item when the unit is dead
+    setMenuItem(item) {
+        this.menuItem = item;
+    }
+    // attack the target unit
+    attack(target) {
+        if(target.living) {
+            target.takeDamage(this.damage);
+            this.scene.events.emit("Message", this.type + " attacks " + target.type + " for " + this.damage + " damage");
+        }
+    }    
+    takeDamage(damage) {
+        this.hp -= damage;
+        if(this.hp <= 0) {
+            this.hp = 0;
+            this.menuItem.unitKilled();
+            this.living = false;
+            this.visible = false;   
+            this.menuItem = null;
+        }
+    }    
+};
+
+class Enemy extends Unit {
+
+    constructor (scene, x, y, texture, frame, type, hp, damage) {
+        super(scene, x, y, texture, frame, type, hp, damage);
+    }
+};
+
+class PlayerCharacter extends Unit {
+
+    constructor (scene, x, y, texture, frame, type, hp, damage) {
+        super(scene, x, y, texture, frame, type, hp, damage);
+        // flip the image so I don"t have to edit it manually
+        this.flipX = true;
+        
+        this.setScale(2);
+    }
+};
+
+export class MenuItem extends Phaser.GameObjects.Text {
+            
+    constructor (x, y, text, scene) {
+        super(scene, x, y, text, { color: "#ffffff", align: "left", fontSize: 15});
+    }
+    
+    select() {
+        this.setColor("#f8ff38");
+    }
+    
+    deselect() {
+        this.setColor("#ffffff");
+    }
+    // when the associated enemy or player unit is killed
+    unitKilled() {
+        this.active = false;
+        this.visible = false;
+    }
+};
+
+// base menu class, container for menu items
+export class Menu extends Phaser.GameObjects.Container {
+    constructor (x, y, scene, heroes) {
+        super(scene, x, y);
+        this.menuItems = [];
+        this.menuItemIndex = 0;
+        this.x = x;
+        this.y = y;        
+        this.selected = false;
+    }     
+    addMenuItem(unit) {
+        var menuItem = new MenuItem(0, this.menuItems.length * 20, unit, this.scene);
+        this.menuItems.push(menuItem);
+        this.add(menuItem); 
+        return menuItem;
+    }
+    // menu navigation 
+    moveSelectionUp() {
+        this.menuItems[this.menuItemIndex].deselect();
+        do {
+            this.menuItemIndex--;
+            if(this.menuItemIndex < 0)
+                this.menuItemIndex = this.menuItems.length - 1;
+        } while(!this.menuItems[this.menuItemIndex].active);
+        this.menuItems[this.menuItemIndex].select();
+    }
+    moveSelectionDown() {
+        this.menuItems[this.menuItemIndex].deselect();
+        do {
+            this.menuItemIndex++;
+            if(this.menuItemIndex >= this.menuItems.length)
+                this.menuItemIndex = 0;
+        } while(!this.menuItems[this.menuItemIndex].active);
+        this.menuItems[this.menuItemIndex].select();
+    }
+    // select the menu as a whole and highlight the choosen element
+    select(index) {
+        if(!index)
+            index = 0;       
+        this.menuItems[this.menuItemIndex].deselect();
+        this.menuItemIndex = index;
+        while(!this.menuItems[this.menuItemIndex].active) {
+            this.menuItemIndex++;
+            if(this.menuItemIndex >= this.menuItems.length)
+                this.menuItemIndex = 0;
+            if(this.menuItemIndex == index)
+                return;
+        }        
+        this.menuItems[this.menuItemIndex].select();
+        this.selected = true;
+    }
+    // deselect this menu
+    deselect() {        
+        this.menuItems[this.menuItemIndex].deselect();
+        this.menuItemIndex = 0;
+        this.selected = false;
+    }
+    confirm() {
+        // when the player confirms his slection, do the action
+    }
+    // clear menu and remove all menu items
+    clear() {
+        for(var i = 0; i < this.menuItems.length; i++) {
+            this.menuItems[i].destroy();
+        }
+        this.menuItems.length = 0;
+        this.menuItemIndex = 0;
+    }
+    // recreate the menu items
+    remap(units) {
+        this.clear();        
+        for(var i = 0; i < units.length; i++) {
+            var unit = units[i];
+            unit.setMenuItem(this.addMenuItem(unit.type));            
+        }
+        this.menuItemIndex = 0;
+    }
+};
+
+export class HeroesMenu extends Menu {
+    constructor (x, y, scene) {
+        super(x, y, scene);                    
+    }
+};
+
+export class ActionsMenu extends Menu {
+    constructor (x, y, scene) {
+        super(x, y, scene);   
+        this.addMenuItem("Attack");
+    }
+    confirm() { 
+        // we select an action and go to the next menu and choose from the enemies to apply the action
+        this.scene.events.emit("SelectedAction");        
+    }
+    
+};
+
+export class EnemiesMenu extends Menu {
+    constructor (x, y, scene) {
+        super(x, y, scene);        
+    }       
+    confirm() {      
+        // the player has selected the enemy and we send its id with the event
+        this.scene.events.emit("Enemy", this.menuItemIndex);
+    }
+};
+
+// User Interface scene
+
+// the message class extends containter 
+export class Message extends Phaser.GameObjects.Container {
+    constructor (scene, events) {
+        super(scene, 160, 30);
+        var graphics = this.scene.add.graphics();
+        this.add(graphics);
+        graphics.lineStyle(1, 0xffffff, 0.8);
+        graphics.fillStyle(0x031f4c, 0.3);        
+        graphics.strokeRect(-90, -15, 180, 30);
+        graphics.fillRect(-90, -15, 180, 30);
+        this.text = new Phaser.GameObjects.Text(scene, 0, 0, "", { color: "#ffffff", align: "center", fontSize: 13, wordWrap: { width: 170, useAdvancedWrap: true }});
+        this.add(this.text);
+        this.text.setOrigin(0.5);        
+        events.on("Message", this.showMessage, this);
+        this.visible = false;
+    }
+    showMessage(text) {
+        this.text.setText(text);
+        this.visible = true;
+        if(this.hideEvent)
+            this.hideEvent.remove(false);
+        this.hideEvent = this.scene.time.addEvent({ delay: 2000, callback: this.hideMessage, callbackScope: this });
+    }
+    hideMessage() {
+        this.hideEvent = null;
+        this.visible = false;
+    }
+};
+
+export default { BattleScene, MenuItem, Menu, HeroesMenu, ActionsMenu, EnemiesMenu, Message };
 
 

@@ -2,7 +2,7 @@ import 'phaser';
 
  export default class WorldScene extends Phaser.Scene {
     constructor () {
-      super('Game');
+      super('WorldScene');
     }
 
     preload()
