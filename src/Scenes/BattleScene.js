@@ -1,4 +1,6 @@
 import 'phaser';
+import Enemy from '../Characters/Enemy';
+
 
 export class BattleScene extends Phaser.Scene {
     constructor () {
@@ -145,12 +147,6 @@ class Unit extends Phaser.GameObjects.Sprite {
     }    
 };
 
-class Enemy extends Unit {
-
-    constructor (scene, x, y, texture, frame, type, hp, damage) {
-        super(scene, x, y, texture, frame, type, hp, damage);
-    }
-};
 
 class PlayerCharacter extends Unit {
 
