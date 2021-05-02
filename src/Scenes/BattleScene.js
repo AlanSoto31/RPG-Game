@@ -1,8 +1,9 @@
 import 'phaser';
 import Enemy from '../Characters/Enemy';
+import PlayerCharacter from '../Characters/Enemy';
 
 
-export class BattleScene extends Phaser.Scene {
+export default class BattleScene extends Phaser.Scene {
     constructor () {
       super('BattleScene');
     }
@@ -146,21 +147,5 @@ class Unit extends Phaser.GameObjects.Sprite {
         }
     }    
 };
-
-
-class PlayerCharacter extends Unit {
-
-    constructor (scene, x, y, texture, frame, type, hp, damage) {
-        super(scene, x, y, texture, frame, type, hp, damage);
-        // flip the image so I don"t have to edit it manually
-        this.flipX = true;
-        
-        this.setScale(2);
-    }
-};
-
-
-
-export default { BattleScene};
 
 
