@@ -23,7 +23,7 @@ export default class GetNameScene extends Phaser.Scene {
         }
 
         if(event.code === "Enter" && textEntry.text.length > 0){
-          scoreScene.getScore();
+          //scoreScene.getScore();
           this.scene.start('WorldScene')
         } 
     });
