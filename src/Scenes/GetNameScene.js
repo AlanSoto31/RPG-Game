@@ -1,6 +1,7 @@
 import 'phaser';
 import config from '../Config/config';
 import Button from '../Objects/Button';
+import scoreScene from './scoreScene';
 
 export default class GetNameScene extends Phaser.Scene {
   constructor () {
@@ -22,6 +23,7 @@ export default class GetNameScene extends Phaser.Scene {
         }
 
         if(event.code === "Enter" && textEntry.text.length > 0){
+          scoreScene.getScore();
           this.scene.start('WorldScene')
         } 
     });
