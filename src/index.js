@@ -9,6 +9,7 @@ import Model from './Model';
 import WorldScene from './Scenes/WorldScene';
 import BattleScene from './Scenes/BattleScene';
 import UIScene from './UI/UIScene';
+import GetNameScene from './Scenes/GetNameScene';
 
 class Game extends Phaser.Game {
   constructor () {
@@ -23,6 +24,7 @@ class Game extends Phaser.Game {
     this.scene.add('WorldScene', WorldScene);
     this.scene.add('BattleScene', BattleScene);
     this.scene.add('UIScene', UIScene);
+    this.scene.add('GetNameScene', GetNameScene);
     this.scene.start('Boot');
   }
 }
