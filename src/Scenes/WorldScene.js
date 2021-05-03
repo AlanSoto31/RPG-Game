@@ -88,12 +88,14 @@ import 'phaser';
     }
 
     wake(){
+        this.model = this.sys.game.globals.model;
         this.cursors.left.reset();
         this.cursors.right.reset();
         this.cursors.up.reset();
         this.cursors.down.reset();
-        this.score += 50;
-        this.scoreText.setText('Score: ' + this.score);
+        this.model.score += 50; 
+        //this.score += 50;
+        this.scoreText.setText('Score: ' + this.model.score);
     }
 
     onMeetEnemy(player, zone) {        

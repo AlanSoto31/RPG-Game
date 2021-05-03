@@ -1,7 +1,6 @@
 import 'phaser';
 import Enemy from '../Characters/Enemy';
 import PlayerCharacter from '../Characters/PlayerCharacter';
-import WorldScene from './WorldScene';
 
 export default class BattleScene extends Phaser.Scene {
     constructor () {
@@ -18,17 +17,17 @@ export default class BattleScene extends Phaser.Scene {
 
     startBattle() {
         // player character - warrior
-        var warrior = new PlayerCharacter(this, 250, 50, "player", 1, "Warrior", 50, 20);        
+        var warrior = new PlayerCharacter(this, 250, 50, "player", 1, "Warrior", 30, 15);        
         this.add.existing(warrior);
         
         // player character - mage
-        var mage = new PlayerCharacter(this, 250, 100, "player", 4, "Mage", 50, 8);
+        var mage = new PlayerCharacter(this, 250, 100, "player", 4, "Mage", 50, 10);
         this.add.existing(mage);            
         
         var dragonblue = new Enemy(this, 50, 50, "dragonblue", null, "Dragon", 50, 20);
         this.add.existing(dragonblue);
         
-        var dragonOrange = new Enemy(this, 50, 100, "dragonorrange", null,"Dragon2", 50, 20);
+        var dragonOrange = new Enemy(this, 50, 100, "dragonorrange", null,"Dragon2", 50, 10);
         this.add.existing(dragonOrange);
         
         // array with heroes
@@ -44,11 +43,13 @@ export default class BattleScene extends Phaser.Scene {
     }
 
     nextTurn() {  
-        // if we have victory or game over
+        //this.checkEndBattle()
+         // if we have victory or game over
         if(this.checkEndBattle()) {        
-            this.endBattle();
+            this.endBattle(true);
             return;
         }
+
         do {
             // currently active unit
             this.index++;
@@ -87,6 +88,10 @@ export default class BattleScene extends Phaser.Scene {
             if(this.heroes[i].living)
                 gameOver = false;
         }
+
+         if(gameOver === true){
+            this.gameOver = true;
+        }
         return victory || gameOver;
     }
     // when the player have selected the enemy to be attacked
@@ -110,7 +115,12 @@ export default class BattleScene extends Phaser.Scene {
         // sleep the UI
         this.scene.sleep('UIScene');
         // return to WorldScene and sleep current BattleScene
-        this.scene.switch('WorldScene');
+        if(this.gameOver){
+            this.scene.switch('GameOverScene');
+        }else{
+            this.scene.switch('WorldScene');
+        }
+        
     }
 };
 
