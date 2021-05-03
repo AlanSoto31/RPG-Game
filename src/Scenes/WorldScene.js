@@ -10,6 +10,7 @@ import 'phaser';
 
     create()
     {
+        this.score = 0;
         // create the map
         const map = this.make.tilemap({ key: 'map' });
         
@@ -82,6 +83,8 @@ import 'phaser';
         this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
         // we listen for 'wake' event
         this.sys.events.on('wake', this.wake, this);
+
+        this.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '16px', fill: '#000' });
     }
 
     wake(){
@@ -89,6 +92,8 @@ import 'phaser';
         this.cursors.right.reset();
         this.cursors.up.reset();
         this.cursors.down.reset();
+        this.score += 50;
+        this.scoreText.setText('Score: ' + this.score);
     }
 
     onMeetEnemy(player, zone) {        

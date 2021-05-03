@@ -1,6 +1,7 @@
 import 'phaser';
 import Enemy from '../Characters/Enemy';
 import PlayerCharacter from '../Characters/PlayerCharacter';
+import WorldScene from './WorldScene';
 
 export default class BattleScene extends Phaser.Scene {
     constructor () {
@@ -44,7 +45,7 @@ export default class BattleScene extends Phaser.Scene {
 
     nextTurn() {  
         // if we have victory or game over
-        if(this.checkEndBattle()) {           
+        if(this.checkEndBattle()) {        
             this.endBattle();
             return;
         }
