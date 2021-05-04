@@ -25,6 +25,9 @@ export default class GetNameScene extends Phaser.Scene {
 
         if(event.code === "Enter" && textEntry.text.length > 0){
           this.model.playerName = textEntry.text;
+          //ScoreScene.setGameName();
+          //ScoreScene.setScore(this.model.playerName, this.model.score);
+
           this.scene.start('WorldScene')
         } 
     });
