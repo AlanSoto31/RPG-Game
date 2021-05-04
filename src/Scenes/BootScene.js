@@ -13,8 +13,8 @@ export default class BootScene extends Phaser.Scene {
     this.load.tilemapTiledJSON('map', 'assets/map/map.json');
     
     // enemies
-    this.load.image("dragonblue", "assets/dragonblue.png");
-    this.load.image("dragonorrange", "assets/dragonorrange.png");
+    this.load.image("octopus", "assets/octopus.png");
+    this.load.image("jellyfish", "assets/jellyfish.png");
     
     // our two characters
     this.load.spritesheet('player', 'assets/manatee-african.png', { frameWidth: 32, frameHeight: 32 });

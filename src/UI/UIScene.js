@@ -12,22 +12,21 @@ export default class UIScene extends Phaser.Scene {
     create ()
     {    
         // draw some background for the menu
+
         this.graphics = this.add.graphics();
         this.graphics.lineStyle(1, 0xffffff);
-        this.graphics.fillStyle(0x031f4c, 1);        
-        this.graphics.strokeRect(2, 150, 90, 100);
-        this.graphics.fillRect(2, 150, 90, 100);
-        this.graphics.strokeRect(95, 150, 90, 100);
-        this.graphics.fillRect(95, 150, 90, 100);
-        this.graphics.strokeRect(188, 150, 130, 100);
-        this.graphics.fillRect(188, 150, 130, 100);
+        this.graphics.fillStyle(0x031f4c, 1);
+                
+        this.graphics.fillRect(0, 175, 130, 100);
+        this.graphics.fillRect(135, 175, 130, 100);
+        this.graphics.fillRect(270, 175, 130, 100);
         
         // basic container to hold all menus
         this.menus = this.add.container();
                 
-        this.heroesMenu = new HeroesMenu(195, 153, this);           
-        this.actionsMenu = new ActionsMenu(100, 153, this);            
-        this.enemiesMenu = new EnemiesMenu(8, 153, this);   
+        this.heroesMenu = new HeroesMenu(275, 180, this);           
+        this.actionsMenu = new ActionsMenu(175, 180, this);            
+        this.enemiesMenu = new EnemiesMenu(5, 180, this);   
         
         // the currently selected menu 
         this.currentMenu = this.actionsMenu;

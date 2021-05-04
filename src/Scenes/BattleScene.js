@@ -19,17 +19,17 @@ export default class BattleScene extends Phaser.Scene {
 
     startBattle() {
         // player character - warrior
-        var warrior = new PlayerCharacter(this, 250, 50, "player", 1, "Warrior", 30, 15);        
+        var warrior = new PlayerCharacter(this, 300, 60, "player", 1, "Manatee1", 30, 15);        
         this.add.existing(warrior);
         
         // player character - mage
-        var mage = new PlayerCharacter(this, 250, 100, "player", 4, "Mage", 30, 10);
+        var mage = new PlayerCharacter(this, 300, 120, "player", 4, "Manatee2", 30, 10);
         this.add.existing(mage);            
         
-        var dragonblue = new Enemy(this, 50, 50, "dragonblue", null, "Dragon", 50, 20);
+        var dragonblue = new Enemy(this, 100, 60, "octopus", null, "Octopus", 50, 20);
         this.add.existing(dragonblue);
         
-        var dragonOrange = new Enemy(this, 50, 100, "dragonorrange", null,"Dragon2", 50, 10);
+        var dragonOrange = new Enemy(this, 100, 120, "jellyfish", null,"Jellyfish", 50, 10);
         this.add.existing(dragonOrange);
         
         // array with heroes

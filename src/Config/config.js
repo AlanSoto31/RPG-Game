@@ -3,8 +3,6 @@ import 'phaser';
 export default {
   type: Phaser.AUTO,
   parent: 'content',
-/*   width: 800,
-  height: 550, */
   width: 400,
   height: 275,
   zoom: 2,
