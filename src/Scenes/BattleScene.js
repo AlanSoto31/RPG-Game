@@ -118,7 +118,7 @@ export default class BattleScene extends Phaser.Scene {
         this.scene.sleep('UIScene');
         // return to WorldScene and sleep current BattleScene
         if(this.gameOver){
-            ScoreScene.setScore(this.model.playerName, this.model.score);
+            //ScoreScene.setScore(this.model.playerName, this.model.score);
             this.scene.switch('GameOverScene');
         }else{
             this.scene.switch('WorldScene');
