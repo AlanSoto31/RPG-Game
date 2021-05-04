@@ -1,6 +1,7 @@
 import 'phaser';
 import Enemy from '../Characters/Enemy';
 import PlayerCharacter from '../Characters/PlayerCharacter';
+import ScoreScene from './ScoreScene';
 
 export default class BattleScene extends Phaser.Scene {
     constructor () {
@@ -8,6 +9,7 @@ export default class BattleScene extends Phaser.Scene {
     }
 
     create(){    
+        this.model = this.sys.game.globals.model;
         // change the background to green
         this.cameras.main.setBackgroundColor("rgba(0, 200, 0, 0.5)");
         this.startBattle();
@@ -116,6 +118,7 @@ export default class BattleScene extends Phaser.Scene {
         this.scene.sleep('UIScene');
         // return to WorldScene and sleep current BattleScene
         if(this.gameOver){
+            ScoreScene.setScore(this.model.playerName, this.model.score);
             this.scene.switch('GameOverScene');
         }else{
             this.scene.switch('WorldScene');

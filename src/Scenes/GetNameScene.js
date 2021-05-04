@@ -1,7 +1,7 @@
 import 'phaser';
 import config from '../Config/config';
 import Button from '../Objects/Button';
-import scoreScene from './scoreScene';
+import ScoreScene from './ScoreScene';
 
 export default class GetNameScene extends Phaser.Scene {
   constructor () {
@@ -9,6 +9,7 @@ export default class GetNameScene extends Phaser.Scene {
   }
 
   create(){
+    this.model = this.sys.game.globals.model;
     this.text = this.add.text(60, 20, 'Enter your name', { fontSize: 30 });
     this.menuButton = new Button(this, config.width/2, 230, 'blueButton1', 'blueButton2', 'Menu', 'Title');
     
@@ -23,7 +24,7 @@ export default class GetNameScene extends Phaser.Scene {
         }
 
         if(event.code === "Enter" && textEntry.text.length > 0){
-          //scoreScene.getScore();
+          this.model.playerName = textEntry.text;
           this.scene.start('WorldScene')
         } 
     });
