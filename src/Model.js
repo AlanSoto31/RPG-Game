@@ -1,10 +1,11 @@
+/* eslint-disable no-underscore-dangle */
 export default class Model {
   constructor() {
     this._soundOn = true;
     this._musicOn = true;
     this._bgMusicPlaying = false;
-    this._score = 10;
-    this._playerName = "";
+    this._score = 0;
+    this._playerName = '';
   }
 
   set musicOn(value) {
@@ -47,3 +48,4 @@ export default class Model {
     return this._playerName;
   }
 }
+/* eslint-enable no-underscore-dangle */

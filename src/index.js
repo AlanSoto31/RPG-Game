@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import 'phaser';
 import config from './Config/config';
 import BootScene from './Scenes/BootScene';
@@ -13,7 +14,7 @@ import GetNameScene from './Scenes/GetNameScene';
 import GameOverScene from './Scenes/GameOverScene';
 
 class Game extends Phaser.Game {
-  constructor () {
+  constructor() {
     super(config);
     const model = new Model();
     this.globals = { model, bgMusic: null };
@@ -32,3 +33,4 @@ class Game extends Phaser.Game {
 }
 
 window.game = new Game();
+/* eslint-enable no-undef */

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import 'phaser';
 
 export default {
@@ -8,10 +9,11 @@ export default {
   zoom: 2,
   pixelArt: true,
   physics: {
-      default: 'arcade',
-      arcade: {
-          gravity: { y: 0 },
-          debug: false // set to true to view zones
-      }
+    default: 'arcade',
+    arcade: {
+      gravity: { y: 0 },
+      debug: false, // set to true to view zones
+    },
   },
 };
+/* eslint-enable no-undef */
