@@ -26,7 +26,8 @@ export default class ScoreScene {
       },
       body: postInfo,
     });
-    await res.json();
+    const res2 = await res.json();
+    return res2;
   }
 
   static async getScores() {
