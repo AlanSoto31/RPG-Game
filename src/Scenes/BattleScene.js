@@ -11,7 +11,7 @@ export default class BattleScene extends Phaser.Scene {
     create(){    
         this.model = this.sys.game.globals.model;
         // change the background to green
-        this.cameras.main.setBackgroundColor("rgba(0, 200, 0, 0.5)");
+        this.cameras.main.setBackgroundColor("rgba(0, 168, 255,1.0)");
         this.startBattle();
         // on wake event we call startBattle too
         this.sys.events.on('wake', this.startBattle, this);             
