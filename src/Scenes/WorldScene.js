@@ -83,7 +83,7 @@ export default class WorldScene extends Phaser.Scene {
     // we listen for 'wake' event
     this.sys.events.on('wake', this.wake, this);
 
-    this.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '16px', fill: '#000' });
+    this.scoreText = this.add.text(16, 16, 'score: 50', { fontSize: '16px', fill: '#000' });
   }
 
   wake() {
@@ -93,7 +93,6 @@ export default class WorldScene extends Phaser.Scene {
     this.cursors.up.reset();
     this.cursors.down.reset();
     this.model.score += 50;
-    // this.score += 50;
     this.scoreText.setText(`Score: ${this.model.score}`);
   }
 

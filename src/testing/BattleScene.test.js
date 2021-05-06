@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import 'jest-canvas-mock';
 import 'phaser';
+import 'regenerator-runtime';
 import BattleScene from '../Scenes/BattleScene';
 
 test('Battle-Scene is an instance of Scene', () => {

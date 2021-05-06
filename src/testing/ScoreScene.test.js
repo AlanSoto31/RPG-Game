@@ -1,6 +1,6 @@
 /* eslint-disable no-undef, no-unused-vars, no-irregular-whitespace */
 import 'jest-canvas-mock';
-import regeneratorRuntime from 'regenerator-runtime';
+import 'regenerator-runtime';
 import ScoreScene from '../Scenes/ScoreScene';
 
 global.fetch = jest.fn(() => Promise.resolve({

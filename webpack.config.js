@@ -19,7 +19,6 @@ module.exports = {
       },
     ],
   },
-
   plugins: [
     new webpack.DefinePlugin({
       CANVAS_RENDERER: JSON.stringify(true),

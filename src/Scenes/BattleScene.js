@@ -2,7 +2,7 @@
 import 'phaser';
 import Enemy from '../Characters/Enemy';
 import PlayerCharacter from '../Characters/PlayerCharacter';
-// import ScoreScene from './ScoreScene';
+import ScoreScene from './ScoreScene';
 
 export default class BattleScene extends Phaser.Scene {
   constructor() {
@@ -20,7 +20,7 @@ export default class BattleScene extends Phaser.Scene {
 
   startBattle() {
     // player character - warrior
-    const warrior = new PlayerCharacter(this, 300, 60, 'player', 1, 'Manatee1', 30, 15);
+    const warrior = new PlayerCharacter(this, 300, 60, 'player', 1, 'Manatee1', 50, 15);
     this.add.existing(warrior);
 
     // player character - mage
@@ -30,7 +30,7 @@ export default class BattleScene extends Phaser.Scene {
     const dragonblue = new Enemy(this, 100, 60, 'octopus', null, 'Octopus', 50, 20);
     this.add.existing(dragonblue);
 
-    const dragonOrange = new Enemy(this, 100, 120, 'jellyfish', null, 'Jellyfish', 50, 10);
+    const dragonOrange = new Enemy(this, 100, 120, 'jellyfish', null, 'Jellyfish', 30, 10);
     this.add.existing(dragonOrange);
 
     // array with heroes
@@ -119,7 +119,7 @@ export default class BattleScene extends Phaser.Scene {
     this.scene.sleep('UIScene');
     // return to WorldScene and sleep current BattleScene
     if (this.gameOver) {
-      // ScoreScene.setScore(this.model.playerName, this.model.score);
+      ScoreScene.setScore(this.model.playerName, this.model.score);
       this.scene.switch('GameOverScene');
     } else {
       this.scene.switch('WorldScene');

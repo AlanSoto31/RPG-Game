@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import 'jest-canvas-mock';
 import 'phaser';
+import 'regenerator-runtime';
 import GameOverScene from '../Scenes/GameOverScene';
 
 test('GameOver-Scene is an instance of Scene', () => {
