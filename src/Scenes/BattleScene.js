@@ -2,7 +2,7 @@
 import 'phaser';
 import Enemy from '../Characters/Enemy';
 import PlayerCharacter from '../Characters/PlayerCharacter';
-import ScoreScene from './ScoreScene.js';
+import ScoreScene from './ScoreScene';
 
 export default class BattleScene extends Phaser.Scene {
   constructor() {

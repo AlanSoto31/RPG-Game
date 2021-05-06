@@ -1,7 +1,7 @@
 /* eslint-disable no-undef, no-unused-vars, no-irregular-whitespace */
 import 'jest-canvas-mock';
 import 'regenerator-runtime';
-import ScoreScene from '../Scenes/ScoreScene.js';
+import ScoreScene from '../Scenes/ScoreScene';
 
 global.fetch = jest.fn(() => Promise.resolve({
   json: () => Promise.resolve({ result: { name: 'Alan', score: 500 } }),
