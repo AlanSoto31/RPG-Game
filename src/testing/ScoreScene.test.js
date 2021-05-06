@@ -1,4 +1,4 @@
-/* eslint-disable no-undef, no-unused-vars, no-irregular-whitespace */
+/* eslint-disable no-undef, no-irregular-whitespace, import/no-unresolved, import/extensions */
 import 'jest-canvas-mock';
 import 'regenerator-runtime';
 import ScoreScene from '../Scenes/ScoreScene';
@@ -27,4 +27,4 @@ describe('API proper behavior', () => {
     expect(typeof res).toBe('object');
   });
 });
-/* eslint-enable no-undef, no-unused-vars, no-irregular-whitespace */
+/* eslint-enable no-undef, no-irregular-whitespace, import/no-unresolved, import/extensions */
