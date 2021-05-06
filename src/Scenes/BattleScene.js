@@ -1,5 +1,4 @@
-/* eslint-disable no-undef, no-plusplus */
-import 'phaser';
+import Phaser from 'phaser';
 import Enemy from '../Characters/Enemy';
 import PlayerCharacter from '../Characters/PlayerCharacter';
 import ScoreScene from './ScoreScene';
@@ -55,7 +54,7 @@ export default class BattleScene extends Phaser.Scene {
 
     do {
       // currently active unit
-      this.index++;
+      this.index += 1;
       // if there are no more units, we start again from the first one
       if (this.index >= this.units.length) {
         this.index = 0;
@@ -82,12 +81,12 @@ export default class BattleScene extends Phaser.Scene {
   checkEndBattle() {
     let victory = true;
     // if all enemies are dead we have victory
-    for (let i = 0; i < this.enemies.length; i++) {
+    for (let i = 0; i < this.enemies.length; i += 1) {
       if (this.enemies[i].living) { victory = false; }
     }
     let gameOver = true;
     // if all heroes are dead we have game over
-    for (let i = 0; i < this.heroes.length; i++) {
+    for (let i = 0; i < this.heroes.length; i += 1) {
       if (this.heroes[i].living) { gameOver = false; }
     }
 
@@ -110,7 +109,7 @@ export default class BattleScene extends Phaser.Scene {
     // clear state, remove sprites
     this.heroes.length = 0;
     this.enemies.length = 0;
-    for (let i = 0; i < this.units.length; i++) {
+    for (let i = 0; i < this.units.length; i += 1) {
       // link item
       this.units[i].destroy();
     }
@@ -126,4 +125,3 @@ export default class BattleScene extends Phaser.Scene {
     }
   }
 }
-/* eslint-enable no-undef, no-plusplus */
