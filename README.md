@@ -13,8 +13,9 @@
 </p>
 
 
-![screenshot](./assets/world.PNG)
-
+<p align="center">
+  <img src="./assets/world.PNG" align="center" >
+</p>
 
 <hr>
 
@@ -57,13 +58,22 @@ Once the game ran, a menu displays.
 - Play to start the game 
 - Options to disable/enable soundtrack.
 - Credits to see the developers.
+
 ![screenshot](./assets/main-menu.PNG)
 
+
+
 In order to start the game you need to enter a name (12 characters maximum) that will be saved along with your score. Hopefully, you can appear in the third highest position.
+
 ![screenshot](./assets/name.PNG)
 
+
+
 Enjoy the game moving around the world with arrows-keys.
+
 ![screenshot](./assets/world.PNG)
+
+
 
 Take some battles to increase your reputation as a hero.
 
@@ -73,7 +83,10 @@ Take some battles to increase your reputation as a hero.
 
 ![screenshot](./assets/fight.PNG)
 
+
+
 Eventually, everyone dies, even the heroes. In this scene of the game, you will be able to see your final score and the three highest scores.
+
 ![screenshot](./assets/gameover.PNG)
 
 
