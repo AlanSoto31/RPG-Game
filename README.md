@@ -49,7 +49,7 @@
 
 ## Live Demo
 
-[Live version]()
+[Live version](https://alansoto31.github.io/RPG-Game/)
 
 ## About the game
 
