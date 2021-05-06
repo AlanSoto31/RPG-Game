@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import 'phaser';
-import ScoreScene from './ScoreScene';
+import ScoreScene from './ScoreScene.js';
 import Button from '../Objects/Button';
 import config from '../Config/config';
 
