@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved, import/extensions */
 import 'jest-canvas-mock';
 import 'regenerator-runtime';
 import ScoreScene from '../Scenes/ScoreScene';

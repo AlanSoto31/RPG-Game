@@ -5,7 +5,7 @@ import ScoreScene from './ScoreScene';
 
 export default class LeaderboardScene extends Phaser.Scene {
   constructor() {
-    super('leaderboardScene');
+    super('LeaderboardScene');
   }
 
   create() {
@@ -33,6 +33,4 @@ export default class LeaderboardScene extends Phaser.Scene {
 
     this.menuButton = new Button(this, config.width / 2, 250, 'blueButton1', 'blueButton2', 'Menu', 'Title');
   }
-
-
 }

@@ -1,3 +1,5 @@
+import 'regenerator-runtime';
+
 export default class ScoreScene {
   static async setGameName() {
     const playerInfo = { name: 'Manatee Game' };

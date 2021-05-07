@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved, import/extensions */
 import Phaser from 'phaser';
 import Enemy from '../Characters/Enemy';
 import PlayerCharacter from '../Characters/PlayerCharacter';
@@ -101,4 +100,3 @@ export default class BattleScene extends Phaser.Scene {
     }
   }
 }
-/* eslint-enable import/no-unresolved, import/extensions */
