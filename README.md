@@ -57,13 +57,15 @@ Once the game ran, a menu displays.
 
 - Play button to start the game 
 - Options button to disable/enable soundtrack.
+- Instructions button to know how to play.
+- Leaderboard button to view high scores.
 - Credits button to see the developers.
 
 ![screenshot](./assets/main-menu.PNG)
 
 
 
-In order to start the game, you need to enter a name (12 characters maximum) that will be saved along with your score. Hopefully, you can appear in the third-highest position.
+In order to start the game, you need to enter a name (12 characters maximum) that will be saved along with your score. Hopefully, you can appear in the high scores.
 
 ![screenshot](./assets/name.PNG)
 
