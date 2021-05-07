@@ -1,5 +1,4 @@
-/* eslint-disable no-undef, class-methods-use-this */
-import 'phaser';
+import Phaser from 'phaser';
 import config from '../Config/config';
 import Button from '../Objects/Button';
 
@@ -9,13 +8,10 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create() {
-    // Game
     this.gameButton = new Button(this, config.width / 2, config.height / 2 - 100, 'blueButton1', 'blueButton2', 'Play', 'GetNameScene');
 
-    // Options
     this.optionsButton = new Button(this, config.width / 2, config.height / 2, 'blueButton1', 'blueButton2', 'Options', 'Options');
 
-    // Credits
     this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 100, 'blueButton1', 'blueButton2', 'Credits', 'Credits');
 
     this.model = this.sys.game.globals.model;
@@ -39,7 +35,7 @@ export default class TitleScene extends Phaser.Scene {
     Phaser.Display.Align.In.Center(
       gameText,
       gameButton,
+      this,
     );
   }
 }
-/* eslint-enable no-undef, class-methods-use-this */

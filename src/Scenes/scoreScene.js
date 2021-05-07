@@ -20,10 +20,7 @@ export default class ScoreScene {
     const newUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/DPUENoC03akrbwf7x3yH/scores/';
     const res = await fetch(newUrl, {
       method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
+      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
       body: postInfo,
     });
     const res2 = await res.json();

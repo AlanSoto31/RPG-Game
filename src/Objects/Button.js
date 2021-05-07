@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-import 'phaser';
+import Phaser from 'phaser';
 
 export default class Button extends Phaser.GameObjects.Container {
   constructor(scene, x, y, key1, key2, text, targetScene) {
@@ -30,4 +29,3 @@ export default class Button extends Phaser.GameObjects.Container {
     this.scene.add.existing(this);
   }
 }
-/* eslint-enable no-undef */

@@ -1,4 +1,4 @@
-/* eslint-disable no-undef, no-irregular-whitespace, import/no-unresolved, import/extensions */
+/* eslint-disable import/no-unresolved, import/extensions */
 import 'jest-canvas-mock';
 import 'regenerator-runtime';
 import ScoreScene from '../Scenes/ScoreScene';
@@ -20,11 +20,11 @@ describe('API proper behavior', () => {
 
   test('Post data in API', async () => {
     fetch.mockImplementationOnce(() => Promise.resolve({
-      json: () => Promise.resolve({ result: 'Leaderboard score created correctly.' }),
+      json: () => Promise.resolve({ result: 'Leaderboard score created correctly.' }),
     }));
     const res = await ScoreScene.setScore('Hanna', 500);
-    expect(res).toEqual({ result: 'Leaderboard score created correctly.' });
+    expect(res).toEqual({ result: 'Leaderboard score created correctly.' });
     expect(typeof res).toBe('object');
   });
 });
-/* eslint-enable no-undef, no-irregular-whitespace, import/no-unresolved, import/extensions */
+/* eslint-enable import/no-unresolved, import/extensions */

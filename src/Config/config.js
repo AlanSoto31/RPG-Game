@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-import 'phaser';
+import Phaser from 'phaser';
 
 export default {
   type: Phaser.AUTO,
@@ -12,8 +11,7 @@ export default {
     default: 'arcade',
     arcade: {
       gravity: { y: 0 },
-      debug: false, // set to true to view zones
+      debug: false,
     },
   },
 };
-/* eslint-enable no-undef */

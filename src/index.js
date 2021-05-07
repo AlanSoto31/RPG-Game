@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-import 'phaser';
+import Phaser from 'phaser';
 import config from './Config/config';
 import BootScene from './Scenes/BootScene';
 import PreloaderScene from './Scenes/PreloaderScene';
@@ -33,4 +32,3 @@ class Game extends Phaser.Game {
 }
 
 window.game = new Game();
-/* eslint-enable no-undef */

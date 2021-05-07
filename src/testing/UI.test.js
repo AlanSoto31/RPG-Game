@@ -1,6 +1,5 @@
-/* eslint-disable no-undef */
 import 'jest-canvas-mock';
-import 'phaser';
+import Phaser from 'phaser';
 import Menu from '../UI/Menu';
 import MenuItem from '../UI/MenuItem';
 import ActionsMenu from '../UI/ActionsMenu';
@@ -32,4 +31,3 @@ test('Message is an instance of Container', () => {
 test('UIScene is an instance of Scene', () => {
   expect(UIScene.prototype instanceof Phaser.Scene).toBe(true);
 });
-/* eslint-enable no-undef */

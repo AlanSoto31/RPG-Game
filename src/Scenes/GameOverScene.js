@@ -1,5 +1,5 @@
-/* eslint-disable no-undef, import/no-unresolved, import/extensions */
-import 'phaser';
+/* eslint-disable import/no-unresolved, import/extensions */
+import Phaser from 'phaser';
 import ScoreScene from './ScoreScene';
 import Button from '../Objects/Button';
 import config from '../Config/config';
@@ -34,4 +34,4 @@ export default class GameOverScene extends Phaser.Scene {
     this.menuButton = new Button(this, config.width / 2, 250, 'blueButton1', 'blueButton2', 'Menu', 'Title');
   }
 }
-/* eslint-enable no-undef, import/no-unresolved, import/extensions */
+/* eslint-enable import/no-unresolved, import/extensions */

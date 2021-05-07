@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-import 'phaser';
+import Phaser from 'phaser';
 import config from '../Config/config';
 import Button from '../Objects/Button';
 
@@ -36,4 +35,3 @@ export default class GetNameScene extends Phaser.Scene {
     });
   }
 }
-/* eslint-enable no-undef */
