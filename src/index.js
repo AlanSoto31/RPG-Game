@@ -11,6 +11,7 @@ import BattleScene from './Scenes/BattleScene';
 import UIScene from './UI/UIScene';
 import GetNameScene from './Scenes/GetNameScene';
 import GameOverScene from './Scenes/GameOverScene';
+import LeaderboardScene from './Scenes/LeaderboardScene';
 
 class Game extends Phaser.Game {
   constructor() {
@@ -27,6 +28,7 @@ class Game extends Phaser.Game {
     this.scene.add('UIScene', UIScene);
     this.scene.add('GetNameScene', GetNameScene);
     this.scene.add('GameOverScene', GameOverScene);
+    this.scene.add('LeaderboardScene', LeaderboardScene);
     this.scene.start('Boot');
   }
 }
