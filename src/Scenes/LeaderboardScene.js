@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Button from '../Objects/Button';
 import config from '../Config/config';
-import ScoreScene from './ScoreScene';
+import ScoreScene from './score';
 
 export default class LeaderboardScene extends Phaser.Scene {
   constructor() {

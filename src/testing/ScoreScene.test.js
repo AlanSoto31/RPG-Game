@@ -1,6 +1,6 @@
 import 'jest-canvas-mock';
 import 'regenerator-runtime';
-import ScoreScene from '../Scenes/ScoreScene';
+import ScoreScene from '../Scenes/score';
 
 global.fetch = jest.fn(() => Promise.resolve({
   json: () => Promise.resolve({ result: { name: 'Alan', score: 500 } }),

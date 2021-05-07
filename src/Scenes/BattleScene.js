@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Enemy from '../Characters/Enemy';
 import PlayerCharacter from '../Characters/PlayerCharacter';
-import ScoreScene from './ScoreScene';
+import ScoreScene from './score';
 
 export default class BattleScene extends Phaser.Scene {
   constructor() {

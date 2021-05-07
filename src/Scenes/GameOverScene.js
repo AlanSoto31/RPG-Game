@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import ScoreScene from './ScoreScene';
+import ScoreScene from './score';
 import Button from '../Objects/Button';
 import config from '../Config/config';
 

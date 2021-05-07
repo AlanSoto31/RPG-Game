@@ -12,7 +12,7 @@ import UIScene from './UI/UIScene';
 import GetNameScene from './Scenes/GetNameScene';
 import GameOverScene from './Scenes/GameOverScene';
 import LeaderboardScene from './Scenes/LeaderboardScene';
-import './Scenes/ScoreScene';
+import './Scenes/score';
 import InstructionsScene from './Scenes/InstructionsScene';
 
 class Game extends Phaser.Game {
