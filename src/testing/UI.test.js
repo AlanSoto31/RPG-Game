@@ -20,7 +20,6 @@ test('ActionsMenu is an instance of Menu', () => {
   expect(ActionsMenu.prototype instanceof Menu).toBe(true);
 });
 
-
 test('ActionsMenu is not an instance of Scene', () => {
   expect(ActionsMenu.prototype instanceof Phaser.Scene).not.toBe(true);
 });
