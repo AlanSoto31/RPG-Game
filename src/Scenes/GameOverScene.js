@@ -10,6 +10,7 @@ export default class GameOverScene extends Phaser.Scene {
 
   create() {
     this.model = this.sys.game.globals.model;
+
     this.text = this.add.text(110, 5, 'Game Over', { fontSize: 30 });
 
     this.text = this.add.text(20, 40, 'Your score:', { fontSize: 30, fill: '#ffff00' });
@@ -31,5 +32,6 @@ export default class GameOverScene extends Phaser.Scene {
     });
 
     this.menuButton = new Button(this, config.width / 2, 250, 'blueButton1', 'blueButton2', 'Menu', 'Title');
+    this.model.score = 50;
   }
 }

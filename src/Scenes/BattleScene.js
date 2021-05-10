@@ -68,7 +68,10 @@ export default class BattleScene extends Phaser.Scene {
     }
     let gameOver = true;
     for (let i = 0; i < this.heroes.length; i += 1) {
-      if (this.heroes[i].living) { gameOver = false; }
+      if (this.heroes[i].living) {
+        gameOver = false;
+        this.gameOver = false;
+      }
     }
 
     if (gameOver === true) {
